@@ -232,7 +232,7 @@ dq = @(z) dk(z,X(S,:))*(XinI(S).*eta) ...
 
 end
 
-%% get Mahalanobis matrix
+%% get scaling matrix
 
 function M = get_scaling_matrix(X,dq,S,N,d,samples)
 
