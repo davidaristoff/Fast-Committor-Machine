@@ -110,7 +110,7 @@ for repeat = 1:repeats   %repeat the experiments
         %get the committor function by solving the reduced linear system
         [q,dq] = get_committor(X,Y,w,k,dk,K,S,b,XinI,YinI,N,gam,tol);
     
-        %update the Mahalanobis matrix
+        %update the scaling matrix
         M = get_scaling_matrix(X,dq,N,d,samples);
         
         %evaluate committor at test points
