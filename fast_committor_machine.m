@@ -59,7 +59,7 @@ load committor_data.mat Xref qref X_ Y_ w_ ...
 
 %% define data matrix
 
-FFM_data = zeros(iters,2,length(Ns),repeats);
+FCM_data = zeros(iters,2,length(Ns),repeats);
 
 %notes: second dimension gives mean squared errors and run times
 
@@ -90,7 +90,7 @@ for repeat = 1:repeats   %repeat the experiments
     %define initial (square root of) scaling matrix
     M = eye(d);
 
-    %run FFM for sample size N
+    %run FCM for sample size N
     for iter = 1:iters
     
         tic
@@ -120,9 +120,9 @@ for repeat = 1:repeats   %repeat the experiments
         runtime = toc;    
 
         %update data and save to workspace
-        FFM_data(iter,1,training_set,repeat) = ... 
+        FCM_data(iter,1,training_set,repeat) = ... 
             norm(qref-qtest)^2/length(qref);
-        FFM_data(iter,2,training_set,repeat) = runtime;
+        FCM_data(iter,2,training_set,repeat) = runtime;
     
     end
 end
@@ -134,7 +134,7 @@ save(['FCM_toy_Ns',num2str(length(Ns)), ...
     '_epsil',num2str(epsil), ...
     '_iters',num2str(iters), ...
     '_repeats',num2str(repeats)], ...
-    "Ns","r","gam","epsil","iters","repeats","FFM_data");
+    "Ns","r","gam","epsil","iters","repeats","FCM_data");
 
 end
 
